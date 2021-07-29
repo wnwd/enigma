@@ -21,7 +21,7 @@ jobs:
            git clone https://github.com/mapxn/enigma.git
            cd enigma
            git checkout gh-pages
-           mv ../${{ env.FILENAME }} ./
+           mv ../${{ env.FILENAME }}.md ./
            echo "- [${{ env.FILENAME }}](./${{ env.FILENAME }})" >> README.md
            git add -A
            git commit -m "Update engima"
