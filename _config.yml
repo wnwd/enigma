@@ -1,1 +1,9 @@
-theme: jekyll-theme-dinky
+title: 古文观止
+description: 传承中华文化，发扬民族智慧
+baseurl: "/enigma" # the subpath of your site, e.g. /blog
+url: "mapxn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
