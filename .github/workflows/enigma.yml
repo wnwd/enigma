@@ -25,4 +25,4 @@ jobs:
            echo "- [${{ env.FILENAME }}](./${{ env.FILENAME }})" >> README.md
            git add -A
            git commit -m "Update engima"
-           git push https://mapxn:${GITHUB_TOKEN}@github.com/mapxn/enigma.git gh-pages
+           git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages
