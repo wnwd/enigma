@@ -23,7 +23,7 @@ jobs:
            cd enigma
            git checkout gh-pages
            mv ../${{ env.FILENAME }}.md ./posts/
-           echo "- [${{ ARTICLE_DATE }} ${{ env.FILENAME }}](./posts/${{ env.FILENAME }})" >> README.md
+           echo "- [${{ env.ARTICLE_DATE }} ${{ env.FILENAME }}](./posts/${{ env.FILENAME }})" >> README.md
            git add -A
            git commit -m "Update engima"
            git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages
