@@ -13,6 +13,7 @@ jobs:
         run: |
            wget https://github.com/mapxn/enigma/releases/download/v0.0.1/mockV2.jar
            echo "FILENAME=$(java -jar mockV2.jar)" >> $GITHUB_ENV
+           echo "ARTICLE_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d')" >> $GITHUB_ENV
       - name: CommitFile
         id: step_two
         run: |
@@ -21,8 +22,8 @@ jobs:
            git clone https://github.com/mapxn/enigma.git
            cd enigma
            git checkout gh-pages
-           mv ../${{ env.FILENAME }}.md ./
-           echo "- [${{ env.FILENAME }}](./${{ env.FILENAME }})" >> README.md
+           mv ../${{ env.FILENAME }}.md ./posts/
+           echo "- [${{ ARTICLE_DATE }} ${{ env.FILENAME }}](./posts/${{ env.FILENAME }})" >> README.md
            git add -A
            git commit -m "Update engima"
            git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages
