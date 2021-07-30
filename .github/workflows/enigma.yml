@@ -3,7 +3,7 @@ on:
   watch:
     types: [started]
   schedule:
-    - cron:  '0 8 * * *'
+    - cron:  '0 20 * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -13,7 +13,6 @@ jobs:
         run: |
            wget https://github.com/mapxn/enigma/releases/download/v0.0.1/mock.jar
            echo "TITLE_NAME=$(java -jar mock.jar)" >> $GITHUB_ENV
-           # echo "ARTICLE_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d')" >> $GITHUB_ENV
       - name: CommitFile
         id: step_two
         run: |
@@ -23,7 +22,6 @@ jobs:
            cd enigma
            git checkout gh-pages
            mv ../${{ env.TITLE_NAME }}.md ./_posts/
-           # echo "- [${{ env.ARTICLE_DATE }} ${{ env.FILENAME }}](./posts/${{ env.FILENAME }})" >> index.md
            git add -A
            git commit -m "Update engima"
-           git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages
+           if [ $(($RANDOM%100+1)) -lt 30 ]; then git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages; fi
