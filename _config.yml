@@ -9,6 +9,7 @@ lang: zh
 # Build settings
 theme: minima
 paginate: 5
+paginate_path: "/:num/"
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
