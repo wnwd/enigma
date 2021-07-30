@@ -5,5 +5,6 @@ url: "mapxn.github.io" # the base hostname & protocol for your site, e.g. http:/
 
 # Build settings
 theme: minima
+permalink: /:year:month:day/:title.html
 plugins:
   - jekyll-feed
