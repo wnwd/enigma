@@ -22,4 +22,5 @@ jobs:
            mv ../${{ env.TITLE_NAME }}.md ./_posts/
            git add -A
            git commit -m "Update engima"
-           if [ $(($RANDOM%100+1)) -lt 50 ]; then git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages; fi
+           if [ $(($RANDOM%100+1)) -lt 41 ]; then git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages; fi
+           
