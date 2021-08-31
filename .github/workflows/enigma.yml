@@ -9,7 +9,7 @@ jobs:
       - name: PrepareDate
         id: step_one
         run: |
-           wget https://github.com/mapxn/enigma/releases/download/v0.0.1/mock.jar
+           wget https://github.com/WNWD/enigma/releases/download/v0.0.1/mock.jar
            echo "TITLE_NAME=$(java -jar mock.jar)" >> $GITHUB_ENV
       - name: CommitFile
         id: step_two
