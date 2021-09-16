@@ -9,18 +9,20 @@ jobs:
       - name: PrepareDate
         id: step_one
         run: |
-           wget https://github.com/WNWD/enigma/releases/download/v0.0.1/mock.jar
+           wget https://github.com/wnwd/enigma/releases/download/v0.0.1/mock.jar
            echo "TITLE_NAME=$(java -jar mock.jar)" >> $GITHUB_ENV
       - name: CommitFile
         id: step_two
         run: |
            git config --global user.name "mapxn"
            git config --global user.email "${{ secrets.EMAIL }}"
-           git clone https://github.com/mapxn/enigma.git
+           echo "${{ env.PRIVATE_KEY }}" > ~/.ssh/id_rsa
+           chmod 600 ~/.ssh/id_rsa
+           git clone git@github.com:wnwd/enigma.git
            cd enigma
            git checkout gh-pages
            mv ../${{ env.TITLE_NAME }}.md ./_posts/
            git add -A
            git commit -m "Update engima"
-           if [ $(($RANDOM%100+1)) -lt 41 ]; then git push https://mapxn:${{ secrets.GITHUB_TOKEN }}@github.com/mapxn/enigma.git gh-pages; fi
+           if [ $(($RANDOM%100+1)) -lt 41 ]; then git push origin gh-pages; fi
            
