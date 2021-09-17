@@ -2,6 +2,9 @@ name: GitHub Actions Demo
 on:
   schedule:
     - cron:  '0 20 * * *'
+  watch:
+    types: [started]
+    
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -16,6 +19,7 @@ jobs:
         run: |
            git config --global user.name "mapxn"
            git config --global user.email "${{ secrets.EMAIL }}"
+           mkdir ~/.ssh
            echo "${{ env.PRIVATE_KEY }}" > ~/.ssh/id_rsa
            chmod 600 ~/.ssh/id_rsa
            git clone git@github.com:wnwd/enigma.git
