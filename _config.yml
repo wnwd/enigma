@@ -3,7 +3,7 @@ author:
   name: Mengzi
 description: 传承中华文化，发扬民族智慧
 baseurl: "/enigma" # the subpath of your site, e.g. /blog
-url: "mapxn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "wnwd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: zh
 
 # Build settings
